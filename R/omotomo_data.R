@@ -48,7 +48,7 @@ omotomo_data <- function(t0, t1, tomo = NULL, verbose = FALSE) {
   # ------------------------------------------------------------------------------
 
   if (isTRUE(tomo$gnss_param$USE)) {
-    gnss_stec_raw <- tomoscand::get_omotomo(
+    gnss_stec_raw <- get_omotomo(
       dir_path = tomo$gnss_param$directory,
       t_start = t0,
       t_stop  = t1,
