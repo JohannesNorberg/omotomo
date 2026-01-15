@@ -287,7 +287,7 @@ read_omotomo <- function(
 
   # Pierce points at 350 km
   if (isTRUE(verbose)) cat("\n  Piercepoint computations\n")
-  pp350 <- compute_pierce_point(
+  pp350 <- tomoscand::compute_pierce_point(
     lat  = h5data$station_lat,
     long = h5data$station_long,
     el   = h5data$el,
