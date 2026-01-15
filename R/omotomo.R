@@ -72,12 +72,12 @@
 #' @export
 omotomo <- function(t0, t1, tomo = NULL, CALIBRATE = FALSE, verbose = FALSE) {
 
-  tomo <- tomoscand_init(t0,  t1, tomo, verbose)
+  tomo <- tomoscand::tomoscand_init(t0,  t1, tomo, verbose)
   tomo <- omotomo_data(t0,  t1, tomo, verbose)
-  tomo <- tomoscand_prior(t0, t1, tomo, CALIBRATE, verbose)
-  tomo <- tomoscand_solve(tomo, copy_input = TRUE, verbose)
+  tomo <- tomoscand::tomoscand_prior(t0, t1, tomo, CALIBRATE, verbose)
+  tomo <- tomoscand::tomoscand_solve(tomo, copy_input = TRUE, verbose)
 
-  tomoscand_save(tomo, t_ref = t1, verbose)
+  tomoscand::tomoscand_save(tomo, t_ref = t1, verbose)
   #save_json_data(tomo, rm_negat = TRUE, status_col = NULL)
   omotomo_plot(tomo = tomo, t_ref = t1, extra_label = tomo$plotting$extra_label, verbose = FALSE)
 
