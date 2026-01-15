@@ -278,11 +278,11 @@ omotomo_data <- function(t0, t1, tomo = NULL, verbose = FALSE) {
 
   # Extract peak parameters only
   if (isTRUE(tomo$ro_ionden_param$USE)) {
-    ro_peaks <- reduce_profiles_to_peaks_only(ro_profile_peaks)
+    ro_peaks <- tomoscand::reduce_profiles_to_peaks_only(ro_profile_peaks)
   } else {ro_peaks <- data.table()}
 
   # Outlier removal for parameters with arbitrary locations
-  ro_peaks_filt <- filter_ungrouped_peak_outliers(ro_peaks, param_list = tomo$ro_peak_param, verbose = verbose)
+  ro_peaks_filt <- tomoscand::filter_ungrouped_peak_outliers(ro_peaks, param_list = tomo$ro_peak_param, verbose = verbose)
 
   # plot_iono_param(tbl = ro_peaks_filt, z_var = "NmF2",
   #   hmE_lim = NULL,
@@ -302,7 +302,7 @@ omotomo_data <- function(t0, t1, tomo = NULL, verbose = FALSE) {
 
   # Remove values from start and end of peak profile parameter timeseries
   # For possible boundary effects
-  peaks_filtered <- filter_parameter_timeseries_boundaries(
+  peaks_filtered <- tomoscand::filter_parameter_timeseries_boundaries(
     tbl       = peaks_all_filtered,
     t_start   = t0,
     t_stop    = t1,
