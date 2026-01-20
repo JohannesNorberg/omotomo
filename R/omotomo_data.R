@@ -52,7 +52,7 @@ omotomo_data <- function(t0, t1, tomo = NULL, verbose = FALSE) {
       dir_path = tomo$gnss_param$directory,
       t_start = t0,
       t_stop  = t1,
-      sat_modeling_alt = tomo$gnss_param$sat_modelling_alt,      
+      sat_modeling_alt = tomo$gnss_param$sat_modelling_alt,
       file_span_min = 15,
       verbose = TRUE,
       lat_filt  = tomo$domain$lat_lim,

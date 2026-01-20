@@ -223,6 +223,14 @@ read_omotomo <- function(
   
   h5data[, dcb_key := paste(station, satellite_type, code, sep = "__")]
 
+  h5data[, dcb_key :=
+    data.table::fifelse(
+      satellite_type == "GLONASS",
+      paste(station, satellite_type, satellite, code, sep = "__"),
+      paste(station, satellite_type, code, sep = "__")
+    )
+  ]
+
   # Remove short arcs
   if (rm_n > 0) {
     if (isTRUE(verbose)) cat("\n  Removing arcs with less than rm_n =", rm_n, "\n")
